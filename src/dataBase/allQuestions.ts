@@ -1,16 +1,19 @@
 type Question = {
   id: number;
   title: string;
+  name?: string;
 };
 
 type Questions = {
   id: number;
   title: string;
-  content?: any;
-  isCorrect: string;
+  content?: number;
+  isCorrect: string | object;
+  type: string;
   answer?: string;
-  questions: Array<Question>;
+  questions?: Array<Question>;
 };
+
 const randomizer = (): number => Math.random();
 
 export const data: Array<Questions> = [
@@ -18,6 +21,7 @@ export const data: Array<Questions> = [
     id: randomizer(),
     title: "Чему равно это выражение?",
     content: 0,
+    type: "simple",
     isCorrect: "Error",
     questions: [
       {
@@ -43,6 +47,7 @@ export const data: Array<Questions> = [
     title: "Что выведет этот код?",
     content: 1,
     isCorrect: "1",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -67,6 +72,7 @@ export const data: Array<Questions> = [
     title: "Что выведет alert?",
     content: 2,
     isCorrect: "Error",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -90,6 +96,7 @@ export const data: Array<Questions> = [
     id: randomizer(),
     title: "Есть ли разница между вызовами i++ и ++i?",
     isCorrect: "Разница в значении, которое возвращает такой вызов.",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -110,6 +117,7 @@ export const data: Array<Questions> = [
     title: "Что выведет этот код?",
     content: 3,
     isCorrect: "null",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -134,6 +142,7 @@ export const data: Array<Questions> = [
     title: "Что выведет этот код?",
     content: 4,
     isCorrect: "10 раз число 10.",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -163,6 +172,7 @@ export const data: Array<Questions> = [
     content: 5,
     isCorrect:
       "Да, существует значение x, для которого они работают по-разному.",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -184,6 +194,7 @@ export const data: Array<Questions> = [
     title: "Какой результат будет у выражения ниже?",
     content: 6,
     isCorrect: "2",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -212,6 +223,7 @@ export const data: Array<Questions> = [
     title: "Что выведет код ниже?",
     content: 7,
     isCorrect: "0, затем 1.",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -232,6 +244,7 @@ export const data: Array<Questions> = [
     title: "Что делает код:",
     content: 8,
     isCorrect: "Выходит из текущего блока цикла или switch на метку «me».",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -252,6 +265,7 @@ export const data: Array<Questions> = [
     title: "Что выведет этот код?",
     content: 9,
     isCorrect: "false",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -272,6 +286,7 @@ export const data: Array<Questions> = [
     title: "Что выведет alert?",
     content: 10,
     isCorrect: "Error",
+    type: "simple",
     questions: [
       {
         id: randomizer(),
@@ -286,5 +301,45 @@ export const data: Array<Questions> = [
         title: "Error",
       },
     ],
+  },
+  {
+    id: randomizer(),
+    title:
+      "После выполнения этого кода – в каких объектах из списка содержится свойство name",
+    content: 11,
+    isCorrect: {
+      a: true,
+      c: true,
+    },
+    type: "multiple",
+    questions: [
+      {
+        id: randomizer(),
+        title: "vasya.__proto__",
+        name: "a",
+      },
+      {
+        id: randomizer(),
+        title: "vasya.prototype",
+        name: "b",
+      },
+      {
+        id: randomizer(),
+        title: "User.__proto__",
+        name: "c",
+      },
+      {
+        id: randomizer(),
+        title: "User.prototype",
+        name: "d",
+      },
+    ],
+  },
+  {
+    id: randomizer(),
+    title: "Що виведе алерт?",
+    content: 12,
+    isCorrect: "10",
+    type: "freeform",
   },
 ];

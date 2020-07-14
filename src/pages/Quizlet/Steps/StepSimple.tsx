@@ -4,7 +4,6 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
-
 import { useDispatch } from "react-redux";
 
 import { Box } from "../../../components/ui";
@@ -35,13 +34,8 @@ export default function StepSimple(props: any) {
     <Box p={3}>
       <FormControl component="fieldset">
         <FormLabel component="legend">{title}</FormLabel>
-              {content !== undefined ? contentComponent[content] : null}
-        <RadioGroup
-          aria-label="gender"
-          name="gender1"
-          value={value}
-          onChange={handleChange}
-        >
+        {content !== undefined ? contentComponent[content] : null}
+        <RadioGroup value={value} onChange={handleChange}>
           {questions.map(({ id, title }: any) => (
             <FormControlLabel
               key={id}

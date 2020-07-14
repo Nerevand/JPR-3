@@ -5,8 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 interface RootState {
   snackBar: {
-    open: any;
-    message: any;
+    open: boolean;
+    message: string;
     type: any;
   };
 }
@@ -19,8 +19,6 @@ export default function CustomizedSnackbars() {
   const { open, message, type } = useSelector(
     (state: RootState) => state.snackBar
   );
-
-  const handleClick = () => {};
 
   const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
     if (reason === "clickaway") {

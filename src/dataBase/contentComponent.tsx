@@ -255,4 +255,62 @@ export const contentComponent: any = [
       <code className="comment">// ?</code>
     </code>
   </pre>,
+  <pre className="pre-content-wrapper">
+    <code className=" language-javascript">
+      <code className="keyword">function</code>{" "}
+      <code className="function">User</code>
+      <code className="punctuation">(</code>
+      <code className="punctuation">)</code>{" "}
+      <code className="punctuation">{`{`}</code>{" "}
+      <code className="punctuation">{`}`}</code>
+      <br />
+      <br />
+      <code className="keyword">let</code> vasya{" "}
+      <code className="operator">=</code> <code className="keyword">new</code>{" "}
+      <code className="class-name">User</code>
+      <code className="punctuation">(</code>
+      <code className="punctuation">)</code>
+      <code className="punctuation">;</code>
+      <br />
+      <br />
+      vasya<code className="punctuation">.</code>__proto__
+      <code className="punctuation">.</code>name{" "}
+      <code className="operator">=</code>{" "}
+      <code className="string">"Vasya"</code>
+      <code className="punctuation">;</code>
+    </code>
+  </pre>,
+  <pre className="pre-content-wrapper">
+    <code className=" language-javascript">
+      <code className="keyword">function</code>{" "}
+      <code className="function">b</code>
+      <code className="punctuation">(</code>x,y,a
+      <code className="punctuation">)</code>{" "}
+      <code className="punctuation">{`{`}</code> <br />
+      <code className="function">arguments</code>
+      <code className="punctuation">[</code>
+      <code className="number">2</code>
+      <code className="punctuation">]</code>
+      {" = "}
+      <code className="number">10</code>
+      <code className="punctuation">;</code>
+      <br />
+      <code className="function">alert</code>
+      <code className="punctuation">(</code>
+      <code className="keyword">a</code>
+      <code className="punctuation">)</code>
+      <code className="punctuation">;</code>
+      <br />
+      <code className="punctuation">{`}`}</code>
+      <br />
+      <code className="keyword">b</code>
+      <code className="punctuation">(</code>
+      <code className="number">1</code>
+      <code className="punctuation">,</code>
+      <code className="number">2</code>
+      <code className="punctuation">,</code>
+      <code className="number">3</code>
+      <code className="punctuation">)</code>
+    </code>
+  </pre>,
 ];

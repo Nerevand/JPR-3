@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Box, Button } from "../../components/ui";
 
-import { customSesionStorage } from "../../constants";
+import { customSesionStorage, customLocalStorage } from "../../constants";
 
 import useSetAnswers from "./useSetAnswers";
 
@@ -13,11 +13,12 @@ function Landing() {
   const handleSetDataForQuestions = (): void => {
     const startOf: any = new Date();
 
+    sessionStorage.clear();
     customSesionStorage.setItem("userAnswer", data);
     customSesionStorage.setItem("startOf", startOf);
   };
 
-  const store: Array<object> = customSesionStorage.getItem("userAnswer");
+  const lastresult: Array<object> = customLocalStorage.getItem("lastResult");
 
   return (
     <Box
@@ -39,7 +40,7 @@ function Landing() {
       <Button
         component={Link}
         to="/result"
-        disabled={store ? false : true}
+        disabled={!lastresult}
         variant="contained"
         color="primary"
       >

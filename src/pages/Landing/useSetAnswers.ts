@@ -6,7 +6,6 @@ const useSetAnswers: any = (): any => {
     var r: any = Math.floor(Math.random() * data.length);
     if (arr.indexOf(data[r]) === -1) arr.push(data[r]);
   }
-
   return arr;
 };
 

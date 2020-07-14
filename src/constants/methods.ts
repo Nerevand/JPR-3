@@ -1,4 +1,9 @@
-export const customSesionStorage: any = {
+interface Storage {
+  getItem?: any;
+  setItem?: any;
+}
+
+export const customSesionStorage: Storage = {
   getItem: function (item: string): any {
     const data: any = sessionStorage.getItem(item);
 
@@ -11,7 +16,7 @@ export const customSesionStorage: any = {
   },
 };
 
-export const customLocalStorage: any = {
+export const customLocalStorage: Storage = {
   getItem: function (item: string): any {
     const data: any = localStorage.getItem(item);
     return JSON.parse(data);

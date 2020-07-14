@@ -38,6 +38,6 @@ export function* getResultSaga(): any {
     const data = yield call(getAllResults);
     yield put({ type: GET_RESULTS, payload: data });
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }

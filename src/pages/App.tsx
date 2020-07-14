@@ -4,19 +4,22 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
+import { withStyles } from '@material-ui/core/styles';
 
-import { Header } from "../components/common";
 import Landing from "./Landing";
 import Leaderbord from "./Leaderboard";
 import Quizlet from "./Quizlet/Quizlet";
 import Result from "./Result";
-
 import CustomizedSnackbars from "../components/common/Snackbar";
+import { Header } from "../components/common";
+
+import {theme, styles} from "../theme";
 
 import { rootReducer } from "../reducers";
 import rootSaga from "../sagas";
 
 import { setResultToDataBase } from "../dataBase/allResults";
+import { ThemeProvider } from "@material-ui/core";
 
 function App() {
   const sagaMiddleware: any = createSagaMiddleware();
@@ -31,17 +34,19 @@ function App() {
   setResultToDataBase();
 
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Header />
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/quizlet" component={Quizlet} />
-        <Route exact path="/result" component={Result} />
-        <Route exact path="/leaderboard" component={Leaderbord} />
-      </BrowserRouter>
-      <CustomizedSnackbars />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Header />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/quizlet" component={Quizlet} />
+          <Route exact path="/result" component={Result} />
+          <Route exact path="/leaderboard" component={Leaderbord} />
+        </BrowserRouter>
+        <CustomizedSnackbars />
+      </Provider>
+    </ThemeProvider>
   );
 }
 
-export default App;
+export default withStyles(styles)(App);

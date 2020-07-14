@@ -10,7 +10,8 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
 import { useMount } from "react-use";
 
-import StepSimple from "./Steps";
+import { StepSimple, StepMultiple, StepFreedom } from "./Steps";
+import { Modal } from "../../components/common";
 
 import { actionResetAnswer, actionSetSnackbar } from "./saga";
 
@@ -45,11 +46,9 @@ function getSteps() {
   return ["", "", "", "", "", "", "", "", "", ""];
 }
 
-function getStepContent(step: number) {
-  const data: any = customSesionStorage.getItem("userAnswer");
-
-  switch (step) {
-    case 0:
+function setTypeOfAnswer(data: any, step: any) {
+  switch (data[step].type) {
+    case "simple":
       return (
         <StepSimple
           answer={data[step]?.answer}
@@ -57,45 +56,31 @@ function getStepContent(step: number) {
           store={data[step]}
         />
       );
-    case 1:
+    case "multiple":
       return (
-        <StepSimple answer={data[step].answer} step={step} store={data[step]} />
+        <StepMultiple
+          answer={data[step]?.answer}
+          step={step}
+          store={data[step]}
+        />
       );
-    case 2:
+    case "freeform":
       return (
-        <StepSimple answer={data[step].answer} step={step} store={data[step]} />
-      );
-    case 3:
-      return (
-        <StepSimple answer={data[step].answer} step={step} store={data[step]} />
-      );
-    case 4:
-      return (
-        <StepSimple answer={data[step].answer} step={step} store={data[step]} />
-      );
-    case 5:
-      return (
-        <StepSimple answer={data[step].answer} step={step} store={data[step]} />
-      );
-    case 6:
-      return (
-        <StepSimple answer={data[step].answer} step={step} store={data[step]} />
-      );
-    case 7:
-      return (
-        <StepSimple answer={data[step].answer} step={step} store={data[step]} />
-      );
-    case 8:
-      return (
-        <StepSimple answer={data[step].answer} step={step} store={data[step]} />
-      );
-    case 9:
-      return (
-        <StepSimple answer={data[step].answer} step={step} store={data[step]} />
+        <StepFreedom
+          answer={data[step]?.answer}
+          step={step}
+          store={data[step]}
+        />
       );
     default:
       return "Unknown step";
   }
+}
+
+function getStepContent(step: number) {
+  const data: any = customSesionStorage.getItem("userAnswer");
+
+  return setTypeOfAnswer(data, step);
 }
 
 export default function Quizlet() {
@@ -130,16 +115,17 @@ export default function Quizlet() {
       const msFromStart: any = moment(startOf).valueOf();
       const msFromNow: any = moment(currentTime).valueOf();
 
-      const all: any = customSesionStorage.getItem("userAnswer");
-      const corectAnswers: any = all.filter(
+      const myResult: any = customSesionStorage.getItem("userAnswer");
+      const corectAnswers: any = myResult.filter(
         ({ isCorrect, answer }: any): any => answer === isCorrect
       ).length;
       const time: any = (msFromNow - msFromStart) / 1000;
+      const name: any = customSesionStorage.getItem("userName");
       const data: any = {
-        username: "Test",
+        username: name,
         time: time,
         score: corectAnswers,
-        id: `Test-${startOf}`,
+        id: `${name}-${startOf}`,
       };
 
       const check: any = results.some(
@@ -151,8 +137,8 @@ export default function Quizlet() {
           ...data,
         });
         customLocalStorage.setItem("results", results);
+        customLocalStorage.setItem("lastResult", myResult);
       }
-      console.log(check);
     }
 
     return result;
@@ -262,6 +248,7 @@ export default function Quizlet() {
               color="primary"
               component={Link}
               to="/result"
+              onClick={() => sessionStorage.clear()}
             >
               Show results
             </Button>
@@ -300,6 +287,7 @@ export default function Quizlet() {
           </div>
         )}
       </div>
+      <Modal />
     </div>
   );
 }
