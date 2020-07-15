@@ -5,7 +5,12 @@ import { useMount } from "react-use";
 
 import { getResultsAction } from "./saga";
 
-const columns: any = [
+interface Columns {
+  title: string;
+  field: string;
+}
+
+const columns: Array<Columns> = [
   { title: "Position", field: "position" },
   { title: "User", field: "username" },
   { title: "Time", field: "time" },
@@ -25,7 +30,7 @@ interface TableState {
 }
 
 interface RootState {
-  results: any;
+  results: Array<any>;
 }
 
 export default function Leaderbord() {

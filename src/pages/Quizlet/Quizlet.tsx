@@ -13,7 +13,7 @@ import { useMount } from "react-use";
 import { StepSimple, StepMultiple, StepFreedom } from "./Steps";
 import { Modal } from "../../components/common";
 
-import { actionResetAnswer, actionSetSnackbar } from "./saga";
+import { actionResetAnswer } from "./saga";
 
 import { customSesionStorage, customLocalStorage } from "../../constants";
 
@@ -182,14 +182,6 @@ export default function Quizlet() {
       if (completed.size !== totalSteps() - skippedSteps()) {
         handleSkip();
       }
-    } else {
-      dispatch(
-        actionSetSnackbar({
-          open: true,
-          message: "Select answer",
-          type: "error",
-        })
-      );
     }
   };
 

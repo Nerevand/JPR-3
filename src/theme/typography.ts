@@ -15,7 +15,4 @@ export default {
   h5: {
     fontSize: 12,
   },
-  h6: {
-    fontSize: 8,
-  },
 };

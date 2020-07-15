@@ -14,6 +14,11 @@ import { customLocalStorage } from "../constants";
 
 import { contentComponent } from "../dataBase/contentComponent";
 
+type Test = {
+  isCorrect: string;
+  answer: string;
+};
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     labelTrue: {
@@ -38,7 +43,7 @@ function Result() {
   const data: Array<any> = customLocalStorage.getItem("lastResult");
 
   const point: number = data.filter(
-    ({ isCorrect, answer }: any): any => answer === isCorrect
+    ({ isCorrect, answer }: Test): boolean => answer === isCorrect
   ).length;
   const rating: number = (point / data.length) * 100;
 
@@ -116,7 +121,7 @@ function Result() {
             >
               <FormControl component="fieldset">
                 <FormLabel component="legend">{title}</FormLabel>
-                {content !== undefined ? contentComponent[content] : null}
+                {content ? contentComponent.get(content) : null}
                 {componentType(type, answer, isCorrect, questions)}
               </FormControl>
             </Box>

@@ -2,7 +2,10 @@ import React from "react";
 
 import "./style.css";
 
-export const contentComponent: any = [
+export const contentComponent: any = new Map();
+
+contentComponent.set(
+  "0",
   <pre className="pre-content-wrapper">
     <code className="language-javascript">
       <code className="punctuation">[</code>
@@ -24,7 +27,11 @@ export const contentComponent: any = [
       <code className="punctuation">(</code>
       <code className="punctuation">)</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "1",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="function">alert</code>
@@ -35,7 +42,11 @@ export const contentComponent: any = [
       <code className="punctuation">)</code>
       <code className="punctuation">;</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "2",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="function">alert</code>
@@ -49,7 +60,11 @@ export const contentComponent: any = [
       <code className="string">"Hello"</code>
       <code className="punctuation">;</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "3",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="function">f</code>
@@ -75,7 +90,11 @@ export const contentComponent: any = [
       <br />
       <code className="punctuation">{`}`}</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "4",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="keyword">for</code>
@@ -109,7 +128,11 @@ export const contentComponent: any = [
       <br />
       <code className="punctuation">{`}`}</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "5",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="keyword">if</code>
@@ -132,7 +155,11 @@ export const contentComponent: any = [
       <code className="operator">...</code>
       <code className="punctuation">{`}`}</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "6",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="keyword">null</code> <code className="operator">+</code>{" "}
@@ -160,7 +187,10 @@ export const contentComponent: any = [
       <code className="number">0</code>
       <code className="punctuation">]</code>
     </code>
-  </pre>,
+  </pre>
+);
+contentComponent.set(
+  "7",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="keyword">for</code>
@@ -185,13 +215,21 @@ export const contentComponent: any = [
       <br />
       <code className="punctuation">{`}`}</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "8",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="keyword">break</code> me
       <code className="punctuation">;</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "9",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="keyword">function</code>{" "}
@@ -235,7 +273,11 @@ export const contentComponent: any = [
       <code className="punctuation">)</code>
       <code className="punctuation">;</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "10",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="keyword">let</code> str{" "}
@@ -254,7 +296,11 @@ export const contentComponent: any = [
       <code className="punctuation">;</code>{" "}
       <code className="comment">// ?</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "11",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="keyword">function</code>{" "}
@@ -279,7 +325,11 @@ export const contentComponent: any = [
       <code className="string">"Vasya"</code>
       <code className="punctuation">;</code>
     </code>
-  </pre>,
+  </pre>
+);
+
+contentComponent.set(
+  "12",
   <pre className="pre-content-wrapper">
     <code className=" language-javascript">
       <code className="keyword">function</code>{" "}
@@ -312,5 +362,5 @@ export const contentComponent: any = [
       <code className="number">3</code>
       <code className="punctuation">)</code>
     </code>
-  </pre>,
-];
+  </pre>
+);

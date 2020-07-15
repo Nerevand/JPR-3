@@ -34,7 +34,7 @@ export default function StepSimple(props: any) {
     <Box p={3}>
       <FormControl component="fieldset">
         <FormLabel component="legend">{title}</FormLabel>
-        {content !== undefined ? contentComponent[content] : null}
+        {content ? contentComponent.get(content) : null}
         <RadioGroup value={value} onChange={handleChange}>
           {questions.map(({ id, title }: any) => (
             <FormControlLabel

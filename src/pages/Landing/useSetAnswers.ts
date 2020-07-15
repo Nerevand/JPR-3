@@ -1,6 +1,6 @@
 import { data } from "../../dataBase/allQuestions";
 
-const useSetAnswers: any = (): any => {
+const useSetAnswers: any = (): Array<any> => {
   const arr = [];
   while (arr.length < 10) {
     var r: any = Math.floor(Math.random() * data.length);

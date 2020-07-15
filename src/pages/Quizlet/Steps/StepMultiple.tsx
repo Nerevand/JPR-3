@@ -31,7 +31,7 @@ export default function StepMultiple(props: any) {
   return (
     <FormGroup row={false}>
       <FormLabel component="legend">{title}</FormLabel>
-      {content !== undefined ? contentComponent[content] : null}
+      {content ? contentComponent.get(content) : null}
       {questions.map(({ id, title, name }: any) => (
         <FormControlLabel
           key={id}

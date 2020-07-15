@@ -10,11 +10,11 @@ const getAllResults: any = (): any => {
   data.sort((a: any, b: any): any => {
     const llc: any = b.score > a.score; //llc - left left condition
     const lrc: any = a.score > b.score; //lrc - left right condition
-    const leftCondition: any = llc - lrc;
+    const leftCondition: number = llc - lrc;
     const rlc: any = b.time > a.time;
     const rrc: any = a.time > b.time;
-    const rightCondition: any = rlc - rrc;
-
+    const rightCondition: number = rlc - rrc;
+    
     return leftCondition || rightCondition;
   });
 

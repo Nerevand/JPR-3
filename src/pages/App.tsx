@@ -4,16 +4,15 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
 
 import Landing from "./Landing";
 import Leaderbord from "./Leaderboard";
-import Quizlet from "./Quizlet/Quizlet";
+import { Quizlet } from "./Quizlet";
 import Result from "./Result";
-import CustomizedSnackbars from "../components/common/Snackbar";
 import { Header } from "../components/common";
 
-import {theme, styles} from "../theme";
+import { theme, styles } from "../theme";
 
 import { rootReducer } from "../reducers";
 import rootSaga from "../sagas";
@@ -43,7 +42,6 @@ function App() {
           <Route exact path="/result" component={Result} />
           <Route exact path="/leaderboard" component={Leaderbord} />
         </BrowserRouter>
-        <CustomizedSnackbars />
       </Provider>
     </ThemeProvider>
   );

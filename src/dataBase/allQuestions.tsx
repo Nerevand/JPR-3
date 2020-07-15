@@ -7,7 +7,7 @@ type Question = {
 type Questions = {
   id: number;
   title: string;
-  content?: number;
+  content?: string;
   isCorrect: string | object;
   type: string;
   answer?: string;
@@ -20,7 +20,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Чему равно это выражение?",
-    content: 0,
+    content: "0",
     type: "simple",
     isCorrect: "Error",
     questions: [
@@ -45,7 +45,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Что выведет этот код?",
-    content: 1,
+    content: "1",
     isCorrect: "1",
     type: "simple",
     questions: [
@@ -70,7 +70,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Что выведет alert?",
-    content: 2,
+    content: "2",
     isCorrect: "Error",
     type: "simple",
     questions: [
@@ -115,7 +115,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Что выведет этот код?",
-    content: 3,
+    content: "3",
     isCorrect: "null",
     type: "simple",
     questions: [
@@ -140,7 +140,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Что выведет этот код?",
-    content: 4,
+    content: "4",
     isCorrect: "10 раз число 10.",
     type: "simple",
     questions: [
@@ -169,7 +169,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Есть ли различия между проверками:",
-    content: 5,
+    content: "5",
     isCorrect:
       "Да, существует значение x, для которого они работают по-разному.",
     type: "simple",
@@ -192,7 +192,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Какой результат будет у выражения ниже?",
-    content: 6,
+    content: "6",
     isCorrect: "2",
     type: "simple",
     questions: [
@@ -221,7 +221,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Что выведет код ниже?",
-    content: 7,
+    content: "7",
     isCorrect: "0, затем 1.",
     type: "simple",
     questions: [
@@ -242,7 +242,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Что делает код:",
-    content: 8,
+    content: "8",
     isCorrect: "Выходит из текущего блока цикла или switch на метку «me».",
     type: "simple",
     questions: [
@@ -263,7 +263,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Что выведет этот код?",
-    content: 9,
+    content: "9",
     isCorrect: "false",
     type: "simple",
     questions: [
@@ -284,7 +284,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Что выведет alert?",
-    content: 10,
+    content: "10",
     isCorrect: "Error",
     type: "simple",
     questions: [
@@ -306,7 +306,7 @@ export const data: Array<Questions> = [
     id: randomizer(),
     title:
       "После выполнения этого кода – в каких объектах из списка содержится свойство name",
-    content: 11,
+    content: "11",
     isCorrect: {
       a: true,
       c: true,
@@ -338,7 +338,7 @@ export const data: Array<Questions> = [
   {
     id: randomizer(),
     title: "Що виведе алерт?",
-    content: 12,
+    content: "12",
     isCorrect: "10",
     type: "freeform",
   },

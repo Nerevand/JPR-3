@@ -8,10 +8,9 @@ import { customSesionStorage, customLocalStorage } from "../../constants";
 import useSetAnswers from "./useSetAnswers";
 
 function Landing() {
-  const data: any = useMemo(useSetAnswers, []);
-
+  const data: Array<any> = useMemo(useSetAnswers, []);
   const handleSetDataForQuestions = (): void => {
-    const startOf: any = new Date();
+    const startOf: object = new Date();
 
     sessionStorage.clear();
     customSesionStorage.setItem("userAnswer", data);

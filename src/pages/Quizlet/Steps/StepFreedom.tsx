@@ -26,7 +26,7 @@ export default function StepMultiple(props: any) {
   const [value, setValue] = useState("");
   const {
     answer,
-    store: { title, content, questions },
+    store: { title, content },
   } = props;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +41,7 @@ export default function StepMultiple(props: any) {
   return (
     <FormGroup row={false}>
       <FormLabel component="legend">{title}</FormLabel>
-      {content !== undefined ? contentComponent[content] : null}
+      {content ? contentComponent.get(content) : null}
       <form className={classes.root} noValidate autoComplete="off">
         <TextField
           value={value}
