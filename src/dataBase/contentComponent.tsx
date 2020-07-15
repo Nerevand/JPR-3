@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./style.css";
-
 export const contentComponent: any = new Map();
 
 contentComponent.set(
